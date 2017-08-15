@@ -53,21 +53,21 @@ object Test {
     getLastBalances;
         
     //Transferring 50 from User1 to User2 
-    postRest("http://localhost:9090/transfer/1/2/50")
     println(s"Transferring 50 from User1 to User2")
-    println("After transfer :")
+    var res=postRest("http://localhost:9090/transfer/1/2/50")
+    if (res.equals("1")) println("Transfer succeeded! Balances : ") else println("Transfer failed! Balances:")    
     getLastBalances;
     
     //Transferring 100 from User3 to User1 
-    postRest("http://localhost:9090/transfer/3/1/50")
     println(s"Transferring 100 from User3 to User1")
-    println("After transfer :")
+    res=postRest("http://localhost:9090/transfer/3/1/50")
+    if (res.equals("1")) println("Transfer succeeded! Balances : ") else println("Transfer failed! Balances:")
     getLastBalances;
 
     //Transferring 5 from User2 to User3 
-    postRest("http://localhost:9090/transfer/2/3/5")
     println(s"Transferring 5 from User2 to User3")
-    println("After transfer :")
+    res=postRest("http://localhost:9090/transfer/2/3/5")
+    if (res.equals("1")) println("Transfer succeeded! Balances : ") else println("Transfer failed! Balances:")
     getLastBalances;
 
 
