@@ -27,6 +27,7 @@ class TransferActor() extends Actor
       sender ! "1"
       }
       catch {
+        //in real case rollback...
         case t: Throwable => sender ! "0"
       }
             
